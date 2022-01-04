@@ -117,8 +117,8 @@ namespace cs03_paskaita
             //Assigment3();
             //Assigment5();
             //Assigment6();
-            Assigment7();
-            Assigment8_HW();
+            //Assigment7();
+            //Assigment8_HW();
             Assigment9_HW();
 
         }
@@ -168,7 +168,7 @@ namespace cs03_paskaita
             Console.WriteLine($"Tūris: 4/3 * π * r³: = {4 / 3 * pi * (Math.Pow(r, 3))} vienetai kubu"); //
 
             double surfaceArea = 4 * Math.PI * Math.Pow(r, 2); // <-- su math kalkuliacijomis
-            Console.WriteLine(surfaceArea);                    //
+            Console.WriteLine(surfaceArea);                    //     Math.PI ir Math.Pow()
             double volume = 4 / 3 * Math.PI * Math.Pow(r, 3);  //
             Console.WriteLine(volume);                         //
         }
@@ -318,8 +318,9 @@ namespace cs03_paskaita
             // NAUDOTI SWICH ... CASE
 
             Console.WriteLine("Vartotojau įvesk skaičių: nuo 1 iki 10");
-            var input = int.Parse(Console.ReadLine());
-            switch (input)
+            var input = Console.ReadLine();
+            if (int.TryParse(input,out int inputTP))
+            switch (inputTP)
             {
                 case 0:
                     Console.WriteLine("0 - 4: NEPATEKINAMAI");
@@ -354,6 +355,13 @@ namespace cs03_paskaita
                 case 10:
                     Console.WriteLine("10: PUIKIAI");
                     break;
+                default:
+                    Console.WriteLine("Netinkama įvestis");
+                    break;
+            }
+            else
+            {
+                Console.WriteLine("Netinkama įvestis (2)");
             }
         }
     }
